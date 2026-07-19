@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Media Hub — Quản lý ảnh, video & nhạc</title>
+<meta name="description" content="Media Hub: ứng dụng Flutter quản lý ảnh, video, âm thanh với timeline theo ngày, xem/crop ảnh, phát video & nhạc nền, yêu thích. Tải APK Android.">
+<link rel="icon" href="./logo.png">
+<style>
+  :root{
+    --brand:#6750A4; --brand-2:#9a86d6; --ink:#1b1b1f; --bg:#ffffff;
+    --muted:#5c5c66; --card:#f5f3fb; --line:#e6e1f0; --radius:18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#e7e3ef; --bg:#131218; --muted:#a9a4b6; --card:#1e1c26; --line:#2c2937; }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0; padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.55; overflow-x:hidden;
+  }
+  a{color:inherit}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 20px}
+
+  /* Hero */
+  header.hero{
+    position:relative; overflow:hidden;
+    background:
+      radial-gradient(1200px 500px at 80% -10%, rgba(103,80,164,.35), transparent 60%),
+      radial-gradient(900px 400px at 0% 10%, rgba(154,134,214,.25), transparent 60%);
+  }
+  .hero-inner{display:grid; grid-template-columns:1.1fr .9fr; gap:32px; align-items:center; padding:64px 0 40px}
+  .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border:1px solid var(--line);
+    border-radius:999px; font-size:13px; color:var(--muted); background:var(--card)}
+  h1{font-size:clamp(34px,5vw,54px); line-height:1.05; margin:16px 0 12px; letter-spacing:-.02em}
+  h1 .grad{background:linear-gradient(90deg,var(--brand),var(--brand-2)); -webkit-background-clip:text;
+    background-clip:text; color:transparent}
+  .lead{font-size:19px; color:var(--muted); max-width:46ch; margin:0 0 26px}
+  .cta{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+  .btn{display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:14px;
+    font-weight:700; text-decoration:none; border:1px solid transparent}
+  .btn-primary{background:var(--brand); color:#fff; box-shadow:0 10px 30px rgba(103,80,164,.35)}
+  .btn-primary:hover{filter:brightness(1.07)}
+  .btn-ghost{background:transparent; border-color:var(--line); color:var(--ink)}
+  .meta{font-size:13px; color:var(--muted); margin-top:12px}
+  .brandmark{display:flex; align-items:center; gap:14px; margin-bottom:8px}
+  .brandmark img{width:56px; height:56px; border-radius:14px; box-shadow:0 8px 20px rgba(103,80,164,.35)}
+  .brandmark b{font-size:20px}
+
+  /* Phone mockup */
+  .phone-wrap{display:flex; justify-content:center}
+  .phone{
+    width:290px; aspect-ratio:9/19.5; background:#0e0e13; border-radius:38px; padding:10px;
+    border:1px solid var(--line); box-shadow:0 30px 60px rgba(20,10,40,.35), 0 0 0 8px rgba(255,255,255,.02);
+    position:relative;
+  }
+  .screen{width:100%; height:100%; background:#131016; border-radius:30px; overflow:hidden; display:flex; flex-direction:column}
+  .st{height:26px; display:flex; align-items:center; justify-content:space-between; padding:0 16px; color:#cfc8dd; font-size:11px}
+  .appbar{display:flex; align-items:center; justify-content:space-between; padding:8px 14px 6px; color:#fff}
+  .appbar .t{font-size:16px; font-weight:600}
+  .appbar .f{opacity:.8}
+  .datehdr{color:#fff; font-weight:700; font-size:12px; padding:8px 12px 6px}
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:3px; padding:0 3px}
+  .tile{aspect-ratio:1; border-radius:3px; position:relative; overflow:hidden}
+  .tile .dur{position:absolute; right:4px; bottom:3px; color:#fff; font-size:9px; font-weight:700; text-shadow:0 1px 2px #000}
+  .tile .pl{position:absolute; left:3px; bottom:2px; color:#fff; font-size:11px; text-shadow:0 1px 2px #000}
+  .tile .fav{position:absolute; left:3px; top:3px; color:#ff5a7a; font-size:10px}
+  .nav{margin-top:auto; display:flex; justify-content:space-around; padding:8px 4px 12px; background:#17141d; color:#cfc8dd; font-size:9px}
+  .nav div{display:flex; flex-direction:column; align-items:center; gap:3px}
+  .nav .on{color:#cbb6ff}
+  .nav i{font-style:normal; font-size:15px}
+
+  /* Sections */
+  section{padding:56px 0}
+  .h2{font-size:clamp(24px,3.5vw,34px); margin:0 0 8px; letter-spacing:-.01em}
+  .sub{color:var(--muted); margin:0 0 32px; max-width:60ch}
+  .features{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .feat{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:20px}
+  .feat .ic{width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    font-size:22px; background:linear-gradient(135deg,rgba(103,80,164,.18),rgba(154,134,214,.18)); margin-bottom:12px}
+  .feat h3{margin:0 0 6px; font-size:17px}
+  .feat p{margin:0; color:var(--muted); font-size:14px}
+
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; counter-reset:s}
+  .step{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:20px; position:relative}
+  .step::before{counter-increment:s; content:counter(s); position:absolute; top:16px; right:18px;
+    font-weight:800; font-size:26px; color:var(--brand); opacity:.35}
+  .step h3{margin:0 0 6px; font-size:16px}
+  .step p{margin:0; color:var(--muted); font-size:14px}
+
+  .note{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--brand);
+    border-radius:12px; padding:16px 18px; color:var(--muted); font-size:14px}
+
+  footer{border-top:1px solid var(--line); padding:28px 0; color:var(--muted); font-size:13px; text-align:center}
+
+  @media (max-width:820px){
+    .hero-inner{grid-template-columns:1fr; padding:40px 0 20px}
+    .phone-wrap{order:-1}
+    .features,.steps{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="brandmark">
+        <img src="./logo.png" alt="Media Hub logo">
+        <b>Media Hub</b>
+      </div>
+      <span class="badge">📱 Android · Flutter · <span id="ver">v1.0.0</span></span>
+      <h1>Quản lý <span class="grad">ảnh, video &amp; nhạc</span><br>gọn — nhanh — riêng tư</h1>
+      <p class="lead">Trình quản lý media tất-cả-trong-một: xem theo dòng thời gian, cắt &amp; nén ảnh,
+        phát video và nhạc nền, đánh dấu yêu thích. Mọi thứ nằm trên máy bạn.</p>
+      <div class="cta">
+        <a class="btn btn-primary" id="dl" href="https://github.com/mittohoa/media-app/releases/latest/download/media-hub-v1.0.0.apk">⬇️ Tải APK Android</a>
+        <a class="btn btn-ghost" id="rel" href="https://github.com/mittohoa/media-app/releases">Tất cả bản phát hành</a>
+      </div>
+      <div class="meta">APK ~ Android 5.0+ · ký bằng debug key (cài trực tiếp, không qua Play Store).</div>
+    </div>
+
+    <div class="phone-wrap">
+      <div class="phone"><div class="screen">
+        <div class="st"><span>11:23</span><span>▮▮▮ 88%</span></div>
+        <div class="appbar"><span class="t">Media Hub · Ảnh</span><span class="f">🗂️</span></div>
+        <div class="datehdr">Hôm nay</div>
+        <div class="grid">
+          <div class="tile" style="background:linear-gradient(135deg,#f6a,#f66)"><span class="fav">♥</span></div>
+          <div class="tile" style="background:linear-gradient(135deg,#7bd,#59f)"></div>
+          <div class="tile" style="background:linear-gradient(135deg,#8e6,#3b9)"><span class="pl">▶</span><span class="dur">0:46</span></div>
+          <div class="tile" style="background:linear-gradient(135deg,#fd8,#f95)"></div>
+          <div class="tile" style="background:linear-gradient(135deg,#b9f,#76e)"></div>
+          <div class="tile" style="background:linear-gradient(135deg,#5cc,#299)"><span class="pl">▶</span><span class="dur">1:31</span></div>
+        </div>
+        <div class="datehdr">Hôm qua</div>
+        <div class="grid">
+          <div class="tile" style="background:linear-gradient(135deg,#f9a,#e6c)"></div>
+          <div class="tile" style="background:linear-gradient(135deg,#9df,#6ad)"></div>
+          <div class="tile" style="background:linear-gradient(135deg,#fc9,#f7a)"></div>
+        </div>
+        <div class="nav">
+          <div class="on"><i>🖼️</i>Ảnh</div>
+          <div><i>🎬</i>Video</div>
+          <div><i>🎵</i>Âm thanh</div>
+          <div><i>♡</i>Yêu thích</div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap">
+    <h2 class="h2">Tính năng nổi bật</h2>
+    <p class="sub">Trải nghiệm gallery trực quan cùng bộ tiện ích media, đóng gói trong một app nhẹ.</p>
+    <div class="features">
+      <div class="feat"><div class="ic">🗓️</div><h3>Timeline theo ngày</h3><p>Ảnh &amp; video xếp theo ngày chụp (metadata), cuộn vô hạn, thanh trượt ngày, kéo để làm mới.</p></div>
+      <div class="feat"><div class="ic">🔍</div><h3>Xem &amp; zoom</h3><p>Vuốt qua lại, chụm để phóng to. Giữ ô video để xem nhanh clip (tắt tiếng).</p></div>
+      <div class="feat"><div class="ic">✂️</div><h3>Cắt · xoay · nén</h3><p>Chỉnh ảnh ngay trong app rồi lưu bản mới vào thư viện. Giảm dung lượng chỉ một chạm.</p></div>
+      <div class="feat"><div class="ic">🎬</div><h3>Phát video</h3><p>Trình phát đầy đủ: play/pause, tua, toàn màn hình.</p></div>
+      <div class="feat"><div class="ic">🎵</div><h3>Nhạc nền</h3><p>Phát âm thanh chạy nền, điều khiển ngay trên thanh thông báo.</p></div>
+      <div class="feat"><div class="ic">♥</div><h3>Yêu thích</h3><p>Thả tim ảnh/video, gom vào một nơi, lưu bền qua các lần mở app.</p></div>
+      <div class="feat"><div class="ic">✅</div><h3>Chọn nhiều</h3><p>Giữ để chọn, chia sẻ hoặc xoá hàng loạt nhanh gọn.</p></div>
+      <div class="feat"><div class="ic">ℹ️</div><h3>Thông tin EXIF</h3><p>Xem kích thước, dung lượng, ngày, máy ảnh, vị trí của ảnh.</p></div>
+      <div class="feat"><div class="ic">🔒</div><h3>Riêng tư</h3><p>Media không rời khỏi máy — không tài khoản, không tải lên máy chủ.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2 class="h2">Cài đặt trong 3 bước</h2>
+    <p class="sub">APK cài trực tiếp cho Android (không qua cửa hàng).</p>
+    <div class="steps">
+      <div class="step"><h3>Tải APK</h3><p>Bấm “Tải APK Android” ở trên để tải file <code>.apk</code> mới nhất.</p></div>
+      <div class="step"><h3>Cho phép cài</h3><p>Khi mở file, bật “Cài đặt từ nguồn này” cho trình duyệt/Files nếu được hỏi.</p></div>
+      <div class="step"><h3>Mở &amp; cấp quyền</h3><p>Mở app, cấp quyền truy cập ảnh/âm thanh để bắt đầu duyệt media.</p></div>
+    </div>
+    <p class="note" style="margin-top:18px">⚠️ Bản này ký bằng <b>debug key</b> để dùng thử/chia sẻ — Android có thể cảnh báo “ứng dụng không rõ nguồn”. Đây là app cá nhân, mã nguồn do bạn kiểm soát.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Media Hub · dựng bằng <a href="https://flutter.dev">Flutter</a> · ảnh minh hoạ trên trang là mô phỏng giao diện.
+  </div>
+</footer>
+</body>
+</html>
