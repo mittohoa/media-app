@@ -1,6 +1,6 @@
 {
-  "version": "1.17.1",
-  "versionCode": 19,
+  "version": "1.17.2",
+  "versionCode": 20,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.17.1: Mượt hơn với thư viện nhiều ảnh — giải phóng bộ nhớ thumbnail khi cuộn, và chỉ chạy AI crop khi ô ảnh thật sự cần. (Bao gồm toàn bộ giao diện mới & Phân loại thông minh của v1.17.0.)"
+  "notes": "v1.17.2: Sửa văng app khi mở/cuộn thư viện nhiều ảnh — AI nhận diện mặt nay chạy trên ảnh thu nhỏ thay vì ảnh gốc, giảm mạnh bộ nhớ. Kèm tối ưu bộ nhớ thumbnail (1.17.1) và toàn bộ giao diện mới, Phân loại thông minh (1.17.0)."
 }
