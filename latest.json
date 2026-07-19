@@ -1,6 +1,6 @@
 {
-  "version": "1.9.0",
-  "versionCode": 10,
+  "version": "1.10.0",
+  "versionCode": 11,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.9.0: Thanh điều hướng dạng pill bo tròn nổi trên nội dung (chỉ icon, tự ẩn/hiện) + kiến trúc AI đa nhà cung cấp/đa key (v1.8.0)."
+  "notes": "v1.10.0: Mô tả / Hỏi AI về ảnh (Gemini/OpenAI) — mô tả, tóm tắt, đọc chữ trong ảnh. Có xác nhận vì gửi ảnh ra nhà cung cấp. Giãn khoảng cách icon thanh điều hướng."
 }
