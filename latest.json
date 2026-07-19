@@ -2,5 +2,5 @@
   "version": "1.1.0",
   "versionCode": 2,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.1.0: Tìm kiếm & lọc, bộ sưu tập tự tạo, kho khoá (vân tay), tiện ích video (nén/cắt/GIF/trích âm thanh), thanh trượt ngày kiểu Google Photos, thanh điều hướng động, và tự cập nhật ngay trong app."
+  "notes": "v1.1.0: Tìm kiếm & lọc, bộ sưu tập tự tạo, kho khoá (vân tay/khoá màn hình), nén video, thanh trượt ngày kiểu Google Photos, thanh điều hướng động, và tự cập nhật ngay trong app."
 }
