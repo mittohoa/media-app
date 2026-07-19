@@ -1,6 +1,6 @@
 {
-  "version": "1.15.0",
-  "versionCode": 16,
+  "version": "1.16.0",
+  "versionCode": 17,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.15.0: Tạo GIF từ video ngay trên máy (không cần ffmpeg) — mở video, chọn Tạo GIF, chia sẻ."
+  "notes": "v1.16.0: Dọn file lớn — liệt kê media nặng nhất kèm dung lượng để chọn xoá, giải phóng bộ nhớ."
 }
