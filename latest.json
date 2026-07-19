@@ -1,6 +1,6 @@
 {
-  "version": "1.7.0",
-  "versionCode": 8,
+  "version": "1.8.0",
+  "versionCode": 9,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.7.0: Kho khoá MÃ HOÁ THẬT (AES-256, khoá trong Keystore) — media đưa vào kho được mã hoá và xoá khỏi thư viện, có thể khôi phục lại. Lưu ý: gỡ app sẽ mất khoá."
+  "notes": "v1.8.0: Kiến trúc AI đa nhà cung cấp/đa key — màn Cài đặt > AI & API keys (Pollinations/OpenAI/Gemini/Hugging Face), thêm/xoay vòng key, tự nhận diện model, chọn nhà cung cấp cho Tạo ảnh."
 }
