@@ -1,6 +1,6 @@
 {
-  "version": "1.6.0",
-  "versionCode": 7,
+  "version": "1.7.0",
+  "versionCode": 8,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.6.0: Minh bạch quyền riêng tư — màn Quyền riêng tư & dữ liệu, cảnh báo trước khi tạo ảnh AI (gửi text tới Pollinations), ghi rõ AI phân tích ảnh chạy trên máy."
+  "notes": "v1.7.0: Kho khoá MÃ HOÁ THẬT (AES-256, khoá trong Keystore) — media đưa vào kho được mã hoá và xoá khỏi thư viện, có thể khôi phục lại. Lưu ý: gỡ app sẽ mất khoá."
 }
