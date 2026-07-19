@@ -1,6 +1,6 @@
 {
-  "version": "1.5.0",
-  "versionCode": 6,
+  "version": "1.6.0",
+  "versionCode": 7,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.5.0: Chủ đề Sáng/Tối, đổi số cột lưới ảnh, trình chiếu (slideshow), đổi tên bộ sưu tập."
+  "notes": "v1.6.0: Minh bạch quyền riêng tư — màn Quyền riêng tư & dữ liệu, cảnh báo trước khi tạo ảnh AI (gửi text tới Pollinations), ghi rõ AI phân tích ảnh chạy trên máy."
 }
