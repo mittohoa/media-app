@@ -1,6 +1,6 @@
 {
-  "version": "1.4.0",
-  "versionCode": 5,
+  "version": "1.5.0",
+  "versionCode": 6,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.4.0: APK nhẹ hơn (~33MB, từ 98MB) + màn Cài đặt và bước chuẩn bị model AI khi mở app lần đầu."
+  "notes": "v1.5.0: Chủ đề Sáng/Tối, đổi số cột lưới ảnh, trình chiếu (slideshow), đổi tên bộ sưu tập."
 }
