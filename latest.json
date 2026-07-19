@@ -1,6 +1,6 @@
 {
-  "version": "1.13.0",
-  "versionCode": 14,
+  "version": "1.14.0",
+  "versionCode": 15,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.13.0: Dọn ảnh trùng (quét trên máy, gom nhóm ảnh giống để xoá) + AI báo lỗi thân thiện, hiện nhà cung cấp."
+  "notes": "v1.14.0: Gắn thẻ (tag) thủ công cho ảnh/video (có gợi ý từ AI trên máy) + duyệt media theo thẻ."
 }
