@@ -1,6 +1,6 @@
 {
-  "version": "1.12.0",
-  "versionCode": 13,
+  "version": "1.13.0",
+  "versionCode": 14,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.12.0: AI sửa ảnh (thử nghiệm) — vẽ vùng cần sửa + mô tả để thay/xoá đối tượng (Hugging Face inpaint, cần API key)."
+  "notes": "v1.13.0: Dọn ảnh trùng (quét trên máy, gom nhóm ảnh giống để xoá) + AI báo lỗi thân thiện, hiện nhà cung cấp."
 }
