@@ -1,6 +1,6 @@
 {
-  "version": "1.14.0",
-  "versionCode": 15,
+  "version": "1.15.0",
+  "versionCode": 16,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.14.0: Gắn thẻ (tag) thủ công cho ảnh/video (có gợi ý từ AI trên máy) + duyệt media theo thẻ."
+  "notes": "v1.15.0: Tạo GIF từ video ngay trên máy (không cần ffmpeg) — mở video, chọn Tạo GIF, chia sẻ."
 }
