@@ -1,6 +1,6 @@
 {
-  "version": "1.8.0",
-  "versionCode": 9,
+  "version": "1.9.0",
+  "versionCode": 10,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.8.0: Kiến trúc AI đa nhà cung cấp/đa key — màn Cài đặt > AI & API keys (Pollinations/OpenAI/Gemini/Hugging Face), thêm/xoay vòng key, tự nhận diện model, chọn nhà cung cấp cho Tạo ảnh."
+  "notes": "v1.9.0: Thanh điều hướng dạng pill bo tròn nổi trên nội dung (chỉ icon, tự ẩn/hiện) + kiến trúc AI đa nhà cung cấp/đa key (v1.8.0)."
 }
