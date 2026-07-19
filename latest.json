@@ -1,6 +1,6 @@
 {
-  "version": "1.17.0",
-  "versionCode": 18,
+  "version": "1.17.1",
+  "versionCode": 19,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.17.0: Giao diện mới — bố cục ảnh thông minh (mosaic đa khung, crop bám nội dung bằng AI), cuộn liền mạch với nhãn ngày nổi, sắp xếp mới nhất trên cùng. Thêm Phân loại thông minh: tự gom ảnh mờ, ảnh chụp màn hình, giấy tờ, ảnh có người — xử lý ngay trên máy."
+  "notes": "v1.17.1: Mượt hơn với thư viện nhiều ảnh — giải phóng bộ nhớ thumbnail khi cuộn, và chỉ chạy AI crop khi ô ảnh thật sự cần. (Bao gồm toàn bộ giao diện mới & Phân loại thông minh của v1.17.0.)"
 }
