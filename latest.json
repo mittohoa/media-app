@@ -1,6 +1,6 @@
 {
-  "version": "1.11.0",
-  "versionCode": 12,
+  "version": "1.12.0",
+  "versionCode": 13,
   "apkUrl": "https://github.com/mittohoa/media-app/releases/latest/download/media-hub.apk",
-  "notes": "v1.11.0: Nhập API key qua file (.json) hoặc quét QR-code (ngoài dán JSON). Mẫu: [{\"provider\":\"openai\",\"key\":\"sk-...\",\"label\":\"k1\"}]."
+  "notes": "v1.12.0: AI sửa ảnh (thử nghiệm) — vẽ vùng cần sửa + mô tả để thay/xoá đối tượng (Hugging Face inpaint, cần API key)."
 }
